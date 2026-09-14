@@ -1,0 +1,547 @@
+```html
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alba Vivien - Autrice di Romance</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #fff9f9 0%, #ffefef 50%, #ffe8f0 100%);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(244, 143, 177, 0.15);
+            position: relative;
+        }
+        header h1 {
+            font-size: 3em;
+            color: #d81b60;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+        }
+        header p {
+            font-size: 1.2em;
+            color: #c2185b;
+            font-style: italic;
+        }
+        .back-btn {
+            position: absolute;
+            top: 40px;
+            left: 30px;
+            background: white;
+            border: 2px solid #d81b60;
+            color: #d81b60;
+            padding: 10px 20px;
+            border-radius: 50px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s;
+            display: none;
+            z-index: 101;
+        }
+        .back-btn:hover {
+            background: #d81b60;
+            color: white;
+        }
+        .back-btn.show {
+            display: block;
+        }
+        nav {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 15px 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(244, 143, 177, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav.hidden {
+            display: none !important;
+        }
+        nav a {
+            color: #d81b60;
+            text-decoration: none;
+            margin: 0 25px;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+        nav a:hover {
+            color: #f06292;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            min-height: auto;
+        }
+        /* HOME VIEW */
+        .view {
+            display: none;
+            width: 100%;
+        }
+        .view.active {
+            display: block;
+            animation: fadeIn 0.3s;
+            width: 100%;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            color: #c2185b;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+        .hero p {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+        /* BLOCCHI PRINCIPALI */
+        .blocks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .block {
+            background: white;
+            border-radius: 15px;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.15);
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 3px solid transparent;
+        }
+        .block:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(244, 143, 177, 0.25);
+            border-color: #f06292;
+        }
+        .block-icon {
+            font-size: 4em;
+            margin-bottom: 15px;
+        }
+        .block-title {
+            font-size: 1.8em;
+            color: #d81b60;
+            font-weight: 600;
+        }
+        .block-subtitle {
+            font-size: 1em;
+            color: #999;
+            margin-top: 10px;
+        }
+        /* SEZIONI DETTAGLIATE */
+        .section-title {
+            font-size: 2.5em;
+            color: #c2185b;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: normal;
+            display: block;
+            visibility: visible;
+        }
+        .section-title .icon {
+            font-size: 1.2em;
+            margin-right: 15px;
+        }
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .gallery-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .gallery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(244, 143, 177, 0.25);
+        }
+        .gallery-content {
+            padding: 25px;
+        }
+        .gallery-title {
+            color: #d81b60;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        .gallery-meta {
+            color: #999;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .gallery-description {
+            color: #666;
+            font-size: 0.95em;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f06292 0%, #d81b60 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.2);
+            border: none;
+            cursor: pointer;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(216, 27, 96, 0.3);
+        }
+        .btn-spotify {
+            background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+        }
+        .btn-spotify:hover {
+            box-shadow: 0 6px 20px rgba(29, 185, 84, 0.3);
+        }
+        .music-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.15);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .music-card h3 {
+            color: #d81b60;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .music-card p {
+            color: #666;
+            font-size: 1.05em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+        .newsletter-section {
+            background: linear-gradient(135deg, rgba(240, 98, 146, 0.05) 0%, rgba(244, 143, 177, 0.05) 100%);
+            border-radius: 15px;
+            padding: 40px;
+            text-align: center;
+            border: 2px solid #fce4ec;
+        }
+        .newsletter-section h3 {
+            color: #d81b60;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        .newsletter-section p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .newsletter-form input {
+            padding: 12px 20px;
+            border: 2px solid #fce4ec;
+            border-radius: 50px;
+            font-size: 1em;
+            width: 300px;
+            max-width: 100%;
+            background: white;
+        }
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: #d81b60;
+            box-shadow: 0 0 10px rgba(216, 27, 96, 0.1);
+        }
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #f06292 0%, #d81b60 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .newsletter-form button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.2);
+        }
+        .about-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.15);
+            border-left: 5px solid #f06292;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .about-card h3 {
+            color: #d81b60;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        .about-card p {
+            color: #666;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+        .about-card a {
+            color: #d81b60;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .about-card a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            color: #c2185b;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+            box-shadow: 0 -4px 15px rgba(244, 143, 177, 0.1);
+        }
+        footer p {
+            margin: 10px 0;
+        }
+        footer a {
+            color: #c2185b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .back-btn {
+                left: 15px;
+                top: 35px;
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+            nav a {
+                margin: 0 12px;
+                font-size: 0.95em;
+            }
+            .hero h2 {
+                font-size: 1.8em;
+            }
+            .section-title {
+                font-size: 2em;
+            }
+            .blocks-grid {
+                grid-template-columns: 1fr;
+            }
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            .newsletter-form input {
+                width: 100%;
+            }
+            .about-card {
+                padding: 25px;
+            }
+            .music-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <button class="back-btn" onclick="goHome()">← Indietro</button>
+        <h1>✨ Alba Vivien ✨</h1>
+        <p>Storie d'amore che catturano il cuore</p>
+    </header>
+    <nav>
+        <a onclick="showHome()">Home</a>
+        <a onclick="showStories()">Storie</a>
+        <a onclick="showMusic()">Musica</a>
+        <a onclick="showAbout()">Chi Sono</a>
+        <a onclick="showNewsletter()">Newsletter</a>
+    </nav>
+    <div class="container">
+        <!-- HOME VIEW -->
+        <div id="homeView" class="view active">
+            <section class="hero">
+                <h2>Benvenuta nel mio mondo</h2>
+                <p>Qui trovi le mie storie di romance, dove ogni amore è un'avventura indimenticabile.</p>
+            </section>
+            <div class="blocks-grid">
+                <div class="block" onclick="showStories()">
+                    <div class="block-icon">📚</div>
+                    <div class="block-title">Le Mie Storie</div>
+                    <div class="block-subtitle">Scopri i miei romanzi</div>
+                </div>
+                <div class="block" onclick="showMusic()">
+                    <div class="block-icon">🎵</div>
+                    <div class="block-title">Soundtrack</div>
+                    <div class="block-subtitle">La musica delle storie</div>
+                </div>
+                <div class="block" onclick="showAbout()">
+                    <div class="block-icon">👤</div>
+                    <div class="block-title">Chi Sono</div>
+                    <div class="block-subtitle">Scopri l'autrice</div>
+                </div>
+                <div class="block" onclick="showNewsletter()">
+                    <div class="block-icon">💌</div>
+                    <div class="block-title">Newsletter</div>
+                    <div class="block-subtitle">Resta aggiornata</div>
+                </div>
+            </div>
+        </div>
+        <!-- STORIE VIEW -->
+        <div id="storiesView" class="view">
+            <h2 class="section-title"><span class="icon">📚</span>Le Mie Storie</h2>
+            <div class="gallery-container">
+                <div class="gallery-card">
+                    <div style="background: linear-gradient(135deg, #f06292 0%, #d81b60 100%); height: 250px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3em; margin-bottom: 10px;">📖</div>
+                            <div style="font-size: 1.4em; font-weight: bold;">Non guardare giù</div>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <div class="gallery-title">Non guardare giù</div>
+                        <div class="gallery-meta">
+                            <span>📚 Contemporary Romance</span>
+                            <span>❤️ Amore a Prima Vista</span>
+                        </div>
+                        <div class="gallery-description">Un amore a prima vista durante il caos di Sanremo. Quando Pietro incontra una persona speciale, tutto cambia. Ma a volte guardare giù significa rischiare tutto per amore.</div>
+                        <a href="https://www.wattpad.com/story/414920901-non-guardare-giù%7Epietro-morandi" class="btn" target="_blank">Leggi la storia</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- MUSICA VIEW -->
+        <div id="musicView" class="view">
+            <h2 class="section-title"><span class="icon">🎵</span>Soundtrack Ufficiale</h2>
+            <div class="music-card">
+                <h3>Non guardare giù</h3>
+                <p>La colonna sonora della storia "Non guardare giù" - canzoni che catturano le emozioni di Pietro e del nostro amore a prima vista a Sanremo.</p>
+                <a href="https://open.spotify.com/playlist/4pSyzd4qOarS9YlaHXP4Qp?si=tAk3XH4VRoSftD9FZNboKQ" class="btn btn-spotify" target="_blank">🎧 Ascolta su Spotify</a>
+            </div>
+        </div>
+        <!-- ABOUT VIEW -->
+        <div id="aboutView" class="view">
+            <h2 class="section-title"><span class="icon">👤</span>Chi Sono</h2>
+            <div class="about-card">
+                <h3>Alba Vivien</h3>
+                <p>Scrittrice appassionata di storie d'amore complesse e personaggi indimenticabili. Alba Vivien ama esplorare le sfumature del romanticismo, creando mondi dove le emozioni sono al centro di tutto.</p>
+                <p>Attualmente lavoro su una fanfiction su Wattpad e sogno di pubblicare le sue opere originali nel prossimo futuro.</p>
+                <p><strong>Contatti:</strong></p>
+                <p><a href="mailto:albavivien025@gmail.com">📧 albavivien025@gmail.com</a></p>
+                <p style="margin-top: 25px;"><strong>Seguimi su:</strong></p>
+                <p><a href="https://www.wattpad.com/user/Alba_Vivien" target="_blank">📖 Wattpad</a></p>
+            </div>
+        </div>
+        <!-- NEWSLETTER VIEW -->
+        <div id="newsletterView" class="view">
+            <h2 class="section-title"><span class="icon">💌</span>Resta Aggiornata</h2>
+            <div class="newsletter-section">
+                <div data-tf-live="OV1Z6rNh"></div>
+                <script src="//embed.typeform.com/next/embed.js"></script>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2026 Alba Vivien. Tutti i diritti riservati.</p>
+        <p>Seguimi su <a href="https://www.wattpad.com/user/Alba_Vivien" target="_blank">Wattpad</a></p>
+    </footer>
+    <script>
+        function hideAllViews() {
+            document.querySelectorAll('.view').forEach(view => {
+                view.classList.remove('active');
+            });
+        }
+        function showHome() {
+            hideAllViews();
+            document.getElementById('homeView').classList.add('active');
+            document.querySelector('.back-btn').classList.remove('show');
+            document.querySelector('nav').classList.remove('hidden');
+            window.scrollTo(0, 0);
+        }
+        function showStories() {
+            hideAllViews();
+            document.getElementById('storiesView').classList.add('active');
+            document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
+        function showMusic() {
+            hideAllViews();
+            document.getElementById('musicView').classList.add('active');
+            document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
+        function showAbout() {
+            hideAllViews();
+            document.getElementById('aboutView').classList.add('active');
+            document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
+        function showNewsletter() {
+            hideAllViews();
+            document.getElementById('newsletterView').classList.add('active');
+            document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
+            window.scrollTo(0, 0);
+        }
+        function goHome() {
+            showHome();
+        }
+    </script>
+</body>
+</html>
+
+```
