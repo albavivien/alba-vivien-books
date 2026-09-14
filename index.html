@@ -73,6 +73,11 @@
             position: sticky;
             top: 0;
             z-index: 100;
+            transition: display 0.3s;
+        }
+
+        nav.hidden {
+            display: none;
         }
 
         nav a {
@@ -586,6 +591,7 @@
             hideAllViews();
             document.getElementById('homeView').classList.add('active');
             document.querySelector('.back-btn').classList.remove('show');
+            document.querySelector('nav').classList.remove('hidden');
             window.scrollTo(0, 0);
         }
 
@@ -593,6 +599,7 @@
             hideAllViews();
             document.getElementById('storiesView').classList.add('active');
             document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
             window.scrollTo(0, 0);
         }
 
@@ -600,6 +607,7 @@
             hideAllViews();
             document.getElementById('musicView').classList.add('active');
             document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
             window.scrollTo(0, 0);
         }
 
@@ -607,6 +615,7 @@
             hideAllViews();
             document.getElementById('aboutView').classList.add('active');
             document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
             window.scrollTo(0, 0);
         }
 
@@ -614,6 +623,7 @@
             hideAllViews();
             document.getElementById('newsletterView').classList.add('active');
             document.querySelector('.back-btn').classList.add('show');
+            document.querySelector('nav').classList.add('hidden');
             window.scrollTo(0, 0);
         }
 
