@@ -54,6 +54,7 @@
             font-size: 1.1em;
             transition: all 0.3s;
             display: none;
+            z-index: 101;
         }
 
         .back-btn:hover {
@@ -73,11 +74,10 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            transition: display 0.3s;
         }
 
         nav.hidden {
-            display: none;
+            display: none !important;
         }
 
         nav a {
@@ -98,17 +98,19 @@
             max-width: 1200px;
             margin: 50px auto;
             padding: 0 20px;
-            min-height: 60vh;
+            min-height: auto;
         }
 
         /* HOME VIEW */
         .view {
             display: none;
+            width: 100%;
         }
 
         .view.active {
             display: block;
             animation: fadeIn 0.3s;
+            width: 100%;
         }
 
         @keyframes fadeIn {
@@ -190,6 +192,8 @@
             text-align: center;
             margin-bottom: 40px;
             font-weight: normal;
+            display: block;
+            visibility: visible;
         }
 
         .section-title .icon {
@@ -531,7 +535,7 @@
                             <span>📚 Contemporary Romance</span>
                             <span>❤️ Amore a Prima Vista</span>
                         </div>
-                        <div class="gallery-description">Un amore a prima vista durante il caos di Sanremo. Quando Pietro incontra una persona speciale, tutto cambia. Ma a volte guardare giù sig[...]
+                        <div class="gallery-description">Un amore a prima vista durante il caos di Sanremo. Quando Pietro incontra una persona speciale, tutto cambia. Ma a volte guardare giù sig[...]</div>
                         <a href="https://www.wattpad.com/story/414920901-non-guardare-giù%7Epietro-morandi" class="btn" target="_blank">Leggi la storia</a>
                     </div>
                 </div>
@@ -553,7 +557,7 @@
             <h2 class="section-title"><span class="icon">👤</span>Chi Sono</h2>
             <div class="about-card">
                 <h3>Alba Vivien</h3>
-                <p>Scrittrice appassionata di storie d'amore complesse e personaggi indimenticabili. Alba Vivien ama esplorare le sfumature del romanticismo, creando mondi dove le emozioni sono a[...]
+                <p>Scrittrice appassionata di storie d'amore complesse e personaggi indimenticabili. Alba Vivien ama esplorare le sfumature del romanticismo, creando mondi dove le emozioni sono al centro di tutto.</p>
                 <p>Attualmente lavoro su una fanfiction su Wattpad e sogno di pubblicare le sue opere originali nel prossimo futuro.</p>
                 <p><strong>Contatti:</strong></p>
                 <p><a href="mailto:albavivien025@gmail.com">📧 albavivien025@gmail.com</a></p>
@@ -566,7 +570,8 @@
         <div id="newsletterView" class="view">
             <h2 class="section-title"><span class="icon">💌</span>Resta Aggiornata</h2>
             <div class="newsletter-section">
-                <p>Iscriviti alla newsletter per ricevere gli aggiornamenti sulle mie storie e anteprime esclusive!</p>
+                <h3>Iscriviti alla Newsletter</h3>
+                <p>Ricevi gli aggiornamenti sulle mie storie e anteprime esclusive!</p>
                 <form class="newsletter-form" action="https://formspree.io/f/xyzabc123" method="POST">
                     <input type="email" name="email" placeholder="La tua email..." required>
                     <button type="submit">Iscriviti</button>
