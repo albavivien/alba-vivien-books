@@ -295,6 +295,29 @@
             box-shadow: 0 6px 20px rgba(29, 185, 84, 0.3);
         }
 
+        .music-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.15);
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .music-card h3 {
+            color: #d81b60;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+
+        .music-card p {
+            color: #666;
+            font-size: 1.05em;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
         .newsletter-section {
             background: linear-gradient(135deg, rgba(240, 98, 146, 0.05) 0%, rgba(244, 143, 177, 0.05) 100%);
             border-radius: 15px;
@@ -449,6 +472,10 @@
             .about-card {
                 padding: 25px;
             }
+
+            .music-card {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -533,18 +560,10 @@
         <!-- MUSICA VIEW -->
         <div id="musicView" class="view">
             <h2 class="section-title"><span class="icon">🎵</span>Soundtrack Ufficiale</h2>
-            <div class="gallery-container">
-                <div class="gallery-card">
-                    <img src="https://mosaic.scdn.co/300/ab67616d0000b273ab67616d0000b273ab67616d0000b273ab67616d0000b273" alt="Playlist Spotify" class="gallery-image">
-                    <div class="gallery-content">
-                        <div class="gallery-title">Non guardare giù</div>
-                        <div class="gallery-meta">
-                            <span>🎧 Playlist Ufficiale</span>
-                        </div>
-                        <div class="gallery-description">La colonna sonora della storia "Non guardare giù" - canzoni che catturano le emozioni di Pietro e del nostro amore a prima vista a Sanremo.</div>
-                        <a href="https://open.spotify.com/playlist/4pSyzd4qOarS9YlaHXP4Qp?si=tAk3XH4VRoSftD9FZNboKQ" class="btn btn-spotify" target="_blank">Ascolta su Spotify</a>
-                    </div>
-                </div>
+            <div class="music-card">
+                <h3>Non guardare giù</h3>
+                <p>La colonna sonora della storia "Non guardare giù" - canzoni che catturano le emozioni di Pietro e del nostro amore a prima vista a Sanremo.</p>
+                <a href="https://open.spotify.com/playlist/4pSyzd4qOarS9YlaHXP4Qp?si=tAk3XH4VRoSftD9FZNboKQ" class="btn btn-spotify" target="_blank">🎧 Ascolta su Spotify</a>
             </div>
         </div>
 
