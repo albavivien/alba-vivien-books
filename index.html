@@ -98,11 +98,22 @@
             font-size: 1.1em;
             transition: transform 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+            display: inline-block;
+            margin: 10px 10px 10px 0;
         }
 
         .btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 6px 20px rgba(216, 27, 96, 0.4);
+        }
+
+        .btn-spotify {
+            background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
+        }
+
+        .btn-spotify:hover {
+            box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
         }
 
         .story-card {
@@ -155,6 +166,29 @@
             color: #999;
             font-size: 0.9em;
             margin-top: 8px;
+        }
+
+        .spotify-section {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.2);
+            border-left: 5px solid #1DB954;
+            text-align: center;
+        }
+
+        .spotify-section h3 {
+            color: #1DB954;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .spotify-section p {
+            color: #555;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            line-height: 1.8;
         }
 
         .newsletter-section {
@@ -259,6 +293,10 @@
             .story-card {
                 padding: 25px;
             }
+
+            .spotify-section {
+                padding: 25px;
+            }
         }
     </style>
 </head>
@@ -271,6 +309,7 @@
     <nav>
         <a href="#home">Home</a>
         <a href="#storie">Le Mie Storie</a>
+        <a href="#soundtrack">Soundtrack</a>
         <a href="#about">Chi Sono</a>
         <a href="#newsletter">Newsletter</a>
     </nav>
@@ -295,7 +334,15 @@
                     <div class="progress-text">Capitolo 30/50-60 • Pubblicazione: 1 capitolo al giorno</div>
                 </div>
 
-                <a href="https://www.wattpad.com/story/414920901-non-guardare-giù%7Epietro-morandi" class="btn" target="_blank">Leggi su Wattpad</a>
+                <a href="https://www.wattpad.com/story/414920901-non-guardare-giù%7Epietro-morandi" class="btn" target="_blank">📖 Leggi su Wattpad</a>
+            </div>
+        </section>
+
+        <section id="soundtrack">
+            <div class="spotify-section">
+                <h3>🎵 Soundtrack Ufficiale</h3>
+                <p>La colonna sonora della storia "Non guardare giù" - canzoni che catturano le emozioni di Pietro e del nostro amore a prima vista a Sanremo.</p>
+                <a href="https://open.spotify.com/playlist/4pSyzd4qOarS9YlaHXP4Qp?si=tAk3XH4VRoSftD9FZNboKQ" class="btn btn-spotify" target="_blank">🎧 Ascolta su Spotify</a>
             </div>
         </section>
 
@@ -313,7 +360,8 @@
         <div class="container">
             <div class="story-card">
                 <h3>Chi Sono</h3>
-                <p>Scrittrice appassionata di storie d'amore complesse e personaggi indimenticabili. Alba Vivien ama esplorare le sfumature del romanticismo, creando mondi dove le emozioni sono al centro di tutto. Attualmente lavora su una fanfiction su Wattpad e sogna di pubblicare le sue opere originali nel prossimo futuro.</p>
+                <p>Scrittrice appassionata di storie d'amore complesse e personaggi indimenticabili. Alba Vivien ama esplorare le sfumature del romanticismo, creando mondi dove le emozioni sono al centro di tutto.</p>
+                <p>Attualmente lavoro su una fanfiction su Wattpad e sogno di pubblicare le sue opere originali nel prossimo futuro.</p>
                 <p><strong>Contatti:</strong> <a href="mailto:albavivien025@gmail.com" style="color: #d81b60;">albavivien025@gmail.com</a></p>
             </div>
         </div>
