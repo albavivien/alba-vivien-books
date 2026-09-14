@@ -13,37 +13,37 @@
 
         body {
             font-family: 'Georgia', serif;
-            background: linear-gradient(135deg, #fff5f7 0%, #ffe4e9 50%, #ffd9e3 100%);
+            background: linear-gradient(135deg, #fff9f9 0%, #ffefef 50%, #ffe8f0 100%);
             color: #333;
             line-height: 1.6;
             min-height: 100vh;
         }
 
         header {
-            background: linear-gradient(135deg, #f8bbd0 0%, #f48fb1 100%);
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
             padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(244, 143, 177, 0.3);
+            box-shadow: 0 4px 15px rgba(244, 143, 177, 0.15);
         }
 
         header h1 {
             font-size: 3em;
-            color: #fff;
+            color: #d81b60;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
         }
 
         header p {
             font-size: 1.2em;
-            color: rgba(255, 255, 255, 0.9);
+            color: #c2185b;
             font-style: italic;
         }
 
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.98);
             padding: 15px 0;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(244, 143, 177, 0.2);
+            box-shadow: 0 2px 10px rgba(244, 143, 177, 0.1);
             position: sticky;
             top: 0;
             z-index: 100;
@@ -63,7 +63,7 @@
         }
 
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 50px auto;
             padding: 0 20px;
         }
@@ -82,122 +82,120 @@
 
         .hero p {
             font-size: 1.2em;
-            color: #555;
+            color: #666;
             margin-bottom: 30px;
             font-style: italic;
         }
 
-        .btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #f06292 0%, #d81b60 100%);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
-            display: inline-block;
-            margin: 10px 10px 10px 0;
+        .section-title {
+            font-size: 2.2em;
+            color: #c2185b;
+            text-align: center;
+            margin-bottom: 40px;
+            font-weight: normal;
         }
 
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(216, 27, 96, 0.4);
+        /* GALLERY STYLES */
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
         }
 
-        .btn-spotify {
-            background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
-            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.3);
-        }
-
-        .btn-spotify:hover {
-            box-shadow: 0 6px 20px rgba(29, 185, 84, 0.4);
-        }
-
-        .story-card {
+        .gallery-card {
             background: white;
             border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.2);
-            border-left: 5px solid #f06292;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.15);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
         }
 
-        .story-card h3 {
+        .gallery-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(244, 143, 177, 0.25);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+        }
+
+        .gallery-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+        .gallery-title {
             color: #d81b60;
-            margin-bottom: 15px;
-            font-size: 2em;
+            font-size: 1.4em;
+            margin-bottom: 10px;
+            font-weight: 600;
         }
 
-        .story-meta {
+        .gallery-meta {
             color: #999;
             font-size: 0.95em;
             margin-bottom: 15px;
         }
 
-        .story-meta span {
-            margin-right: 20px;
+        .gallery-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f06292 0%, #d81b60 100%);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.95em;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.2);
         }
 
-        .story-card p {
-            color: #555;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            line-height: 1.8;
+        .gallery-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(216, 27, 96, 0.3);
+        }
+
+        .gallery-btn-spotify {
+            background: linear-gradient(135deg, #1DB954 0%, #1ed760 100%);
+            box-shadow: 0 4px 15px rgba(29, 185, 84, 0.2);
+        }
+
+        .gallery-btn-spotify:hover {
+            box-shadow: 0 6px 20px rgba(29, 185, 84, 0.3);
         }
 
         .progress {
             background: #f5f5f5;
             border-radius: 10px;
-            padding: 15px;
-            margin-bottom: 20px;
+            padding: 12px;
+            margin: 15px 0;
         }
 
         .progress-bar {
             background: linear-gradient(90deg, #f06292 0%, #f48fb1 100%);
-            height: 8px;
+            height: 6px;
             border-radius: 10px;
             width: 60%;
         }
 
         .progress-text {
             color: #999;
-            font-size: 0.9em;
-            margin-top: 8px;
-        }
-
-        .spotify-section {
-            background: white;
-            border-radius: 15px;
-            padding: 40px;
-            margin-bottom: 30px;
-            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.2);
-            border-left: 5px solid #1DB954;
-            text-align: center;
-        }
-
-        .spotify-section h3 {
-            color: #1DB954;
-            margin-bottom: 20px;
-            font-size: 2em;
-        }
-
-        .spotify-section p {
-            color: #555;
-            font-size: 1.1em;
-            margin-bottom: 20px;
-            line-height: 1.8;
+            font-size: 0.85em;
+            margin-top: 6px;
         }
 
         .newsletter-section {
-            background: linear-gradient(135deg, rgba(240, 98, 146, 0.1) 0%, rgba(244, 143, 177, 0.1) 100%);
+            background: linear-gradient(135deg, rgba(240, 98, 146, 0.05) 0%, rgba(244, 143, 177, 0.05) 100%);
             border-radius: 15px;
             padding: 40px;
             text-align: center;
-            margin: 50px 0;
-            border: 2px solid #f06292;
+            margin: 60px 0;
+            border: 2px solid #fce4ec;
         }
 
         .newsletter-section h3 {
@@ -207,7 +205,7 @@
         }
 
         .newsletter-section p {
-            color: #555;
+            color: #666;
             margin-bottom: 25px;
         }
 
@@ -220,17 +218,18 @@
 
         .newsletter-form input {
             padding: 12px 20px;
-            border: 2px solid #f06292;
+            border: 2px solid #fce4ec;
             border-radius: 50px;
             font-size: 1em;
             width: 300px;
             max-width: 100%;
+            background: white;
         }
 
         .newsletter-form input:focus {
             outline: none;
             border-color: #d81b60;
-            box-shadow: 0 0 10px rgba(216, 27, 96, 0.2);
+            box-shadow: 0 0 10px rgba(216, 27, 96, 0.1);
         }
 
         .newsletter-form button {
@@ -246,16 +245,48 @@
 
         .newsletter-form button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+            box-shadow: 0 4px 15px rgba(216, 27, 96, 0.2);
+        }
+
+        .about-card {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 20px rgba(244, 143, 177, 0.15);
+            border-left: 5px solid #f06292;
+        }
+
+        .about-card h3 {
+            color: #d81b60;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+
+        .about-card p {
+            color: #666;
+            font-size: 1.05em;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .about-card a {
+            color: #d81b60;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .about-card a:hover {
+            text-decoration: underline;
         }
 
         footer {
-            background: linear-gradient(135deg, #f8bbd0 0%, #f48fb1 100%);
-            color: white;
+            background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%);
+            color: #c2185b;
             text-align: center;
             padding: 30px 20px;
             margin-top: 60px;
-            box-shadow: 0 -4px 15px rgba(244, 143, 177, 0.3);
+            box-shadow: 0 -4px 15px rgba(244, 143, 177, 0.1);
         }
 
         footer p {
@@ -263,7 +294,7 @@
         }
 
         footer a {
-            color: white;
+            color: #c2185b;
             text-decoration: none;
             font-weight: bold;
         }
@@ -286,15 +317,19 @@
                 font-size: 1.8em;
             }
 
+            .section-title {
+                font-size: 1.8em;
+            }
+
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+
             .newsletter-form input {
                 width: 100%;
             }
 
-            .story-card {
-                padding: 25px;
-            }
-
-            .spotify-section {
+            .about-card {
                 padding: 25px;
             }
         }
@@ -308,8 +343,8 @@
 
     <nav>
         <a href="#home">Home</a>
-        <a href="#storie">Le Mie Storie</a>
-        <a href="#soundtrack">Soundtrack</a>
+        <a href="#storie">Storie</a>
+        <a href="#musica">Musica</a>
         <a href="#about">Chi Sono</a>
         <a href="#newsletter">Newsletter</a>
     </nav>
@@ -320,32 +355,51 @@
             <p>Qui trovi le mie storie di romance, dove ogni amore è un'avventura indimenticabile.</p>
         </section>
 
+        <!-- STORIE GALLERY -->
         <section id="storie">
-            <div class="story-card">
-                <h3>Non guardare giù</h3>
-                <div class="story-meta">
-                    <span>📚 Contemporary Romance</span>
-                    <span>❤️ Amore a Prima Vista</span>
+            <h2 class="section-title">📚 Le Mie Storie</h2>
+            <div class="gallery-container">
+                <div class="gallery-card">
+                    <div style="background: linear-gradient(135deg, #f06292 0%, #d81b60 100%); height: 250px; display: flex; align-items: center; justify-content: center;">
+                        <div style="text-align: center; color: white;">
+                            <div style="font-size: 3em; margin-bottom: 10px;">📖</div>
+                            <div style="font-size: 1.2em; font-weight: bold;">Non guardare giù</div>
+                        </div>
+                    </div>
+                    <div class="gallery-content">
+                        <div class="gallery-title">Non guardare giù</div>
+                        <div class="gallery-meta">
+                            <span>📚 Contemporary Romance</span><br>
+                            <span>❤️ Amore a Prima Vista</span>
+                        </div>
+                        <p style="color: #666; font-size: 0.95em; margin-bottom: 12px;">Un amore a prima vista durante il caos di Sanremo. Quando Pietro incontra una persona speciale, tutto cambia.</p>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: 60%;"></div>
+                            <div class="progress-text">Capitolo 30/50-60 • 1 capitolo al giorno</div>
+                        </div>
+                        <a href="https://www.wattpad.com/story/414920901-non-guardare-giù%7Epietro-morandi" class="gallery-btn" target="_blank">Leggi la storia</a>
+                    </div>
                 </div>
-                <p>Un amore a prima vista durante il caos di Sanremo. Quando Pietro incontra una persona speciale, tutto cambia. Ma a volte guardare giù significa perdere di vista ciò che davvero importa.</p>
-                
-                <div class="progress">
-                    <div class="progress-bar" style="width: 60%;"></div>
-                    <div class="progress-text">Capitolo 30/50-60 • Pubblicazione: 1 capitolo al giorno</div>
-                </div>
-
-                <a href="https://www.wattpad.com/story/414920901-non-guardare-giù%7Epietro-morandi" class="btn" target="_blank">📖 Leggi su Wattpad</a>
             </div>
         </section>
 
-        <section id="soundtrack">
-            <div class="spotify-section">
-                <h3>🎵 Soundtrack Ufficiale</h3>
-                <p>La colonna sonora della storia "Non guardare giù" - canzoni che catturano le emozioni di Pietro e del nostro amore a prima vista a Sanremo.</p>
-                <a href="https://open.spotify.com/playlist/4pSyzd4qOarS9YlaHXP4Qp?si=tAk3XH4VRoSftD9FZNboKQ" class="btn btn-spotify" target="_blank">🎧 Ascolta su Spotify</a>
+        <!-- MUSICA GALLERY -->
+        <section id="musica">
+            <h2 class="section-title">🎵 Soundtrack</h2>
+            <div class="gallery-container">
+                <div class="gallery-card">
+                    <img src="https://mosaic.scdn.co/300/ab67616d0000b273ab67616d0000b273ab67616d0000b273ab67616d0000b273" alt="Playlist Spotify" class="gallery-image">
+                    <div class="gallery-content">
+                        <div class="gallery-title">Non guardare giù</div>
+                        <div class="gallery-meta">Playlist Ufficiale</div>
+                        <p style="color: #666; font-size: 0.95em; margin-bottom: 15px;">La colonna sonora della storia - canzoni che catturano le emozioni di Pietro e del nostro amore a Sanremo.</p>
+                        <a href="https://open.spotify.com/playlist/4pSyzd4qOarS9YlaHXP4Qp?si=tAk3XH4VRoSftD9FZNboKQ" class="gallery-btn gallery-btn-spotify" target="_blank">Ascolta su Spotify</a>
+                    </div>
+                </div>
             </div>
         </section>
 
+        <!-- NEWSLETTER -->
         <section class="newsletter-section" id="newsletter">
             <h3>💌 Resta Aggiornata</h3>
             <p>Iscriviti alla newsletter per ricevere gli aggiornamenti sulle mie storie e anteprime esclusive!</p>
@@ -356,13 +410,14 @@
         </section>
     </div>
 
+    <!-- CHI SONO -->
     <section id="about">
         <div class="container">
-            <div class="story-card">
+            <div class="about-card">
                 <h3>Chi Sono</h3>
                 <p>Scrittrice appassionata di storie d'amore complesse e personaggi indimenticabili. Alba Vivien ama esplorare le sfumature del romanticismo, creando mondi dove le emozioni sono al centro di tutto.</p>
                 <p>Attualmente lavoro su una fanfiction su Wattpad e sogno di pubblicare le sue opere originali nel prossimo futuro.</p>
-                <p><strong>Contatti:</strong> <a href="mailto:albavivien025@gmail.com" style="color: #d81b60;">albavivien025@gmail.com</a></p>
+                <p><strong>Contatti:</strong> <a href="mailto:albavivien025@gmail.com">albavivien025@gmail.com</a></p>
             </div>
         </div>
     </section>
